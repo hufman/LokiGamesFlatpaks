@@ -1,0 +1,59 @@
+#!/bin/bash
+# This script relies on the following SDK runtimes installed:
+#sudo flatpak install --arch=i386 gnome org.freedesktop.BasePlatform 1.4
+#sudo flatpak install --arch=i386 gnome org.freedesktop.BaseSdk 1.4
+# This script also relies on the following packages on the host
+#sudo apt-get install netpbm wget appstream-util
+# Also, can't redirect stdout to a pipe
+# because it confuses the setup wizard
+
+[ -n "$cdrom_dir" ] || cdrom_dir=/media/cdrom
+[ -n "$build_dir" ] || build_dir="build_dir"
+build_cmd='flatpak build --bind-mount=/cdrom='"$cdrom_dir"' '"$build_dir"
+
+# prepare the build
+flatpak build-init --arch=i386 "$build_dir" com.lokigames.AlphaCentauri org.freedesktop.BaseSdk org.freedesktop.BasePlatform 1.4
+$build_cmd mkdir /app/lib
+$build_cmd mkdir /app/lib/Loki_Compat
+$build_cmd mkdir /app/bin
+$build_cmd tar -xjf loki_compat_libs-1.5.tar.bz2 --strip-components=1 -C /app/lib/Loki_Compat
+
+# install the base game
+ANSWERS="n
+/app/smac
+/app/bin
+y
+y
+y
+y
+y
+n
+y
+n
+"
+echo "$ANSWERS" | $build_cmd bash -c "cd /cdrom; setup.data/bin/Linux/x86/setup"
+echo
+
+# install the patch
+$build_cmd bash -c "tar -xjf smacpatch-x86.tar.bz2 -C /tmp
+cd /tmp/smac-6.0a-x86
+bin/Linux/x86/loki_patch patch.dat /app/smac"
+
+# finalize
+$build_cmd mkdir -p /app/share/applications
+$build_cmd mkdir -p /app/share/appdata
+$build_cmd mkdir -p /app/share/icons/hicolor/48x48/apps
+$build_cmd mkdir -p /app/share/icons/hicolor/64x64/apps
+$build_cmd mkdir -p /app/share/icons/hicolor/256x256/apps
+$build_cmd cp --preserve=mode smac /app/bin
+$build_cmd cp --preserve=mode smacx /app/bin
+$build_cmd cp com.lokigames.AlphaCentauri.desktop /app/share/applications
+$build_cmd cp com.lokigames.AlphaCentauri.appdata.xml /app/share/appdata
+bmptopnm "$cdrom_dir"/icon.bmp | pnmtopng > "$build_dir"/files/share/icons/hicolor/48x48/apps/com.lokigames.AlphaCentauri.png	# original 48x48 size
+bmptopnm "$cdrom_dir"/icon.bmp | pnmscale -width=64 -height=64 | pnmtopng > "$build_dir"/files/share/icons/hicolor/64x64/apps/com.lokigames.AlphaCentauri.png	# appstream wants 64x64 size
+wget https://upload.wikimedia.org/wikipedia/en/0/01/Alpha_Centauri_cover.jpg -O - | jpegtopnm | pnmcut -top 20 -height 256 | pnmtopng > "$build_dir"/files/share/icons/hicolor/256x256/apps/com.lokigames.AlphaCentauri.png	# pretty 256x256 size
+#$build_cmd appstream-compose --prefix=/app --origin=flatpak --basename=com.lokigames.AlphaCentauri com.lokigames.AlphaCentauri
+appstream-compose --prefix="$build_dir"/files --origin=flatpak --basename=com.lokigames.AlphaCentauri com.lokigames.AlphaCentauri
+
+#flatpak build-finish "$build_dir" --socket=x11 --share=ipc --share=network --filesystem=~/.loki/smac/ --command="/app/bin/smac" # Disabled because of https://github.com/flatpak/flatpak/issues/316
+flatpak build-finish "$build_dir" --socket=x11 --share=ipc --share=network --filesystem=home --command="/app/bin/smac"

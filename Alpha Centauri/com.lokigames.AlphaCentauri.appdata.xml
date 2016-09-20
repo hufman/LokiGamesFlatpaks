@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 1999 Firaxis Games and Loki Games <your@email.com> -->
+<component type="desktop">
+ <id>com.lokigames.AlphaCentauri.desktop</id>
+ <metadata_license>CC0-1.0</metadata_license>
+ <project_license>Commercial</project_license>
+ <name>Sid Meier's Alpha Centauri</name>
+ <summary>Sid Meier's Alpha Centari, published by LokiGames for Linux</summary>
+ <description>
+  <p>
+    Mankind begins its most monumental task – the colonization of space. A crew of internationally renowned scientists and security strategists, with wide-ranging convictions and diverse ethics, embarks on a mission that will change the world.
+  </p>
+  <p>
+    One Planet. Seven unique factions. Which will you lead? Each faction has its own agenda, each leader a final goal. You must play to each strength and exploit each hidden weakness in your quest to rule the future.
+  </p>
+  <ul>
+   <li>Great spin-off of the legendary Civilization series, in a refreshing Sci-Fi setting</li>
+   <li>Design your own units. Balance their speed, power, and toughness to suit your current tactical needs</li>
+   <li>Seven factions to chose from, each with its own artificial intelligence model that creates a very suggestive feeling that you are up against real people</li>
+  </ul>
+ </description>
+ <screenshots>
+  <screenshot type="default">
+   <image>https://upload.wikimedia.org/wikipedia/en/0/01/Alpha_Centauri_cover.jpg</image>
+   <caption>Cover art</caption>
+  </screenshot>
+  <screenshot>
+   <image>https://images-3.gog.com/1e8d71fe32c0ee4ea5f7419ca2d0f3f5abac6965d24967e175300a4fbd7ec61c.jpg</image>
+   <caption>Gameplay screenshot</caption>
+  </screenshot>
+  <screenshot>
+   <image>https://images-3.gog.com/7531f9af8d1e9666c600afc11cc4805ba3d7a8f2bf123b308360d257295ef37e.jpg</image>
+   <caption>Gameplay screenshot</caption>
+  </screenshot>
+  <screenshot>
+   <image>https://images-2.gog.com/f76cc0800020ecdfdeeee097c50cc8aa530e172b6f79eba55e2635938b2129bd.jpg</image>
+   <caption>Gameplay screenshot</caption>
+  </screenshot>
+  <screenshot>
+   <image>https://images-2.gog.com/0fe4d9836e677290f4807cdad527734c2522d0d5db6a31249664da0dea3eef8e.jpg</image>
+   <caption>Gameplay screenshot</caption>
+  </screenshot>
+  <screenshot>
+   <image>https://images-2.gog.com/cf3edbf775376b86d845ed198f43cb1f447fc86cc19928916fcdafdc99f2ef06.jpg</image>
+   <caption>Gameplay screenshot</caption>
+  </screenshot>
+  <screenshot>
+   <image>https://images-4.gog.com/6e4ada2897c46ae729a9e77f412fcbf1bbbdd85a4b230ff59a8a589a14d5bc93.jpg</image>
+   <caption>Gameplay screenshot</caption>
+  </screenshot>
+  <screenshot>
+   <image>https://images-1.gog.com/ec6099b4c0bfb7d94ad33ad60b2458788b8c993c22aa5bc9482b02ae19ac287f.jpg</image>
+   <caption>Gameplay screenshot</caption>
+  </screenshot>
+  <screenshot>
+   <image>https://images-2.gog.com/0eb30341492cc44e9f4ceae77af5a54cdb4dd9cf35b86cb68c6ee00b4fdfa701.jpg</image>
+   <caption>Gameplay screenshot</caption>
+  </screenshot>
+  <screenshot>
+   <image>https://images-1.gog.com/8f4996f262f6bc8ded9540dfdcf312f0c988dba405518ae9def57752a313cbb6.jpg</image>
+   <caption>Gameplay screenshot</caption>
+  </screenshot>
+  <screenshot>
+   <image>https://images-3.gog.com/7b316f18b0ea4ca173a6b17ae19482ac3aca119547313635cb0c8db2aa82dbbb.jpg</image>
+   <caption>Gameplay screenshot</caption>
+  </screenshot>
+  <screenshot>
+   <image>https://images-1.gog.com/1c48c71f69f192f9f867bea1ae4cc6472a0715e93bb36d457ecb255a366fa1d6.jpg</image>
+   <caption>Gameplay screenshot</caption>
+  </screenshot>
+  <screenshot>
+   <image>https://images-3.gog.com/29fbf7eb3783ed8404990542c6aadeb321b67f60bc598c309ee2a63253518ddc.jpg</image>
+   <caption>Gameplay screenshot</caption>
+  </screenshot>
+ </screenshots>
+ <url type="homepage">http://www.lokigames.com/products/smac/</url>
+</component>

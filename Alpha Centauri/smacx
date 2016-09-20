@@ -1,0 +1,2 @@
+#!/bin/sh
+/app/lib/Loki_Compat/ld-linux.so.2 --library-path /app/lib/Loki_Compat /app/smac/smacx.dynamic

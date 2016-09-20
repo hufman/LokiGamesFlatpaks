@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Sid Meier's Alpha Centauri
+Comment=Sid Meier's Alpha Centauri, published for Linux by LokiGames
+Exec=smac
+Icon=com.lokigames.AlphaCentauri.png
+Terminal=false
